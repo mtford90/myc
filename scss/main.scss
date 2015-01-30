@@ -1,0 +1,134 @@
+@import url(http://fonts.googleapis.com/css?family=Montserrat);
+
+@font-face {
+  font-family: 'caecilia';
+  src: url('../fonts/Caecilia-LT-Std-45-Light_8982.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html, body {
+  font-family: caecilia, serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  text-rendering: optimizeLegibility; /* 1 */
+  font-feature-settings: "kern" 1; /* 2 */
+  font-kerning: normal; /* 3 */
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  font-size: 14px;
+  margin-top: 5px;
+  div {
+    display: inline-block;
+    margin-left: 5px;
+  }
+  .fa {
+    font-size: 16px;
+  }
+}
+
+$transition: 0.4s;
+
+.title {
+  padding-bottom: 8px;
+  padding-top: 10px;
+  padding-left: 15px;
+  font-size: 30px;
+  font-weight: bold;
+  background-color: white;
+}
+
+.main {
+  width: 100%;
+  height: 100%;
+  background-color: #e1e1e1;
+}
+
+
+.home-overlay {
+  position: fixed;
+  float: left;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  pointer-events: auto;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.item {
+  font-family: 'Helvetic Neue', sans-serif;
+  width: 200px;
+  height: 200px;
+  .img {
+    position: relative;
+    .actual-img {
+      height: 100%;
+      width: 100%;
+      background-size: cover;
+    }
+    .img-title {
+      color: white;
+      display: none;
+    }
+    cursor: pointer;
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+
+    }
+    .img-title {
+      opacity: 0;
+      transition: opacity $transition;
+      display: inherit;
+      position: absolute;
+      bottom: 5px;
+      right: 10px;
+    }
+    &.not-hovered {
+      .overlay {
+        background-color: rgba(0, 0, 0, 0.0);
+        transition: background-color $transition;
+      }
+    }
+    &.hover {
+      .overlay {
+        background-color: rgba(0, 0, 0, 0.3);
+        transition: background-color $transition;
+      }
+      .img-title {
+        opacity: 1;
+        display: inherit;
+        transition: opacity $transition;
+      }
+    }
+  }
+
+  &.placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .fa {
+      font-size: 40px;
+    }
+  }
+}
+
+.masonry {
+  text-align: center;
+  .items {
+    display: inline;
+  }
+}
